@@ -2,6 +2,7 @@ __author__ = 'Areg'
 import random
 
 
+
 index = 0
 
 
@@ -201,11 +202,30 @@ def MyBubbleSort(InputArray):
 
 
 
-
 #MergeSort(InputArray, 0, len(InputArray)-1)
-for i in range(0, 1000000, 1):
-    InputArray = random.sample(range(1, 100), 20)
-    MyBubbleSort(InputArray)
-    for k in range(0, len(InputArray)-1, 1):
-        if InputArray[k] > InputArray[k+1]:
-            print "no !"
+#for i in range(0, 1000000, 1):
+    #InputArray = random.sample(range(1, 100), 20)
+    #MyBubbleSort(InputArray)
+    #for k in range(0, len(InputArray)-1, 1):
+       # if InputArray[k] > InputArray[k+1]:
+            #print "no !"
+
+def MybinaryCalc():
+    A = [0, 0, 0, 1]
+    B = [0, 0, 1, 1]
+    C = [0] * (len(A)+1)
+
+    for i in range(len(A)-1, -1, -1):
+        if A[i] + B[i] + C[i+1] == 0:
+            C[i+1] = 0
+        elif A[i] + B[i] + C[i+1] == 1:
+            C[i+1] = 1
+        elif A[i] + B[i] + C[i+1] == 2:
+            C[i+1] = 0
+            C[i] = 1
+        elif A[i] + B[i] + C[i+1] == 3:
+            C[i+1] = 1
+            C[i] = 1
+    print C
+
+MybinaryCalc()
